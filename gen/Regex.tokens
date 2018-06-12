@@ -1,0 +1,15 @@
+T__0=1
+PLUS=2
+STAR=3
+QUESTION_MARK=4
+OR_OP=5
+GROUP_OP_L=6
+GROUP_OP_R=7
+LITERAL=8
+'/'=1
+'+'=2
+'*'=3
+'?'=4
+'|'=5
+'('=6
+')'=7
