@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="14f374c9-e21f-488f-8ef5-26b6e866953e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/automata/automata.py" beforeDir="false" afterPath="$PROJECT_DIR$/automata/NFA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/automata/NFA.py" beforeDir="false" afterPath="$PROJECT_DIR$/automata/Automaton.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nfa.dot" beforeDir="false" afterPath="$PROJECT_DIR$/nfa.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nfa.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/nfa.pdf" afterDir="false" />
@@ -21,15 +21,15 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/regex_data_gen$parser.coverage" NAME="parser Coverage Results" MODIFIED="1528878722020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/regex_data_gen$main.coverage" NAME="main Coverage Results" MODIFIED="1528905455265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/generateData$main.coverage" NAME="main Coverage Results" MODIFIED="1528962916040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/generateData$main.coverage" NAME="main Coverage Results" MODIFIED="1528992448153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="75">
+              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
               </folding>
@@ -78,17 +78,17 @@
       <file leaf-file-name="nfa.dot" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nfa.dot">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+            <state relative-caret-position="150">
+              <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="thompson.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="thompson.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/thompson/thompson.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="109" column="26" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
+            <state relative-caret-position="395">
+              <caret line="203" selection-start-line="203" selection-end-line="203" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -106,11 +106,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="NFA.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/automata/NFA.py">
+      <file leaf-file-name="Automaton.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/automata/Automaton.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="58" selection-start-line="58" selection-end-line="58" />
+            <state relative-caret-position="347">
+              <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
             </state>
           </provider>
         </entry>
@@ -128,6 +128,8 @@
     <findStrings>
       <find>\e</find>
       <find>&quot;\e&quot;</find>
+      <find>str</find>
+      <find>zip</find>
     </findStrings>
     <replaceStrings>
       <replace>NFA.EPSILON</replace>
@@ -159,9 +161,10 @@
         <option value="$PROJECT_DIR$/regex_parser/Regex.g4" />
         <option value="$PROJECT_DIR$/regex_parser/regex_parser.py" />
         <option value="$PROJECT_DIR$/automata/automata.py" />
+        <option value="$PROJECT_DIR$/thompson/thompson.py" />
         <option value="$PROJECT_DIR$/automata/NFA.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/thompson/thompson.py" />
+        <option value="$PROJECT_DIR$/automata/Automaton.py" />
       </list>
     </option>
   </component>
@@ -319,20 +322,20 @@
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Tool Output" order="7" sideWeight="0.4986577" weight="0.32905984" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.54399556" side_tool="true" visible="true" weight="0.329718" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Python Console" order="7" sideWeight="0.4997233" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.63530713" weight="0.31995663" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.45600444" visible="true" weight="0.329718" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" side_tool="true" visible="true" weight="0.26231322" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.56889874" side_tool="true" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Python Console" order="11" sideWeight="0.4997233" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6004427" weight="0.31995663" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="14" sideWeight="0.43110126" visible="true" weight="0.329718" />
+      <window_info content_ui="combo" id="Project" order="0" side_tool="true" visible="true" weight="0.26231322" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="ANTLR Preview" order="7" sideWeight="0.6563758" weight="0.4002849" />
+      <window_info anchor="bottom" id="ANTLR Preview" order="13" sideWeight="0.6563758" weight="0.4002849" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48920864" weight="0.39804772" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6087438" weight="0.39804772" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24966443" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -350,7 +353,21 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="30" />
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/automata/Automaton.py</url>
+          <line>21</line>
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="111" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -407,7 +424,7 @@
     <entry file="file://$PROJECT_DIR$/automata/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/automata/NFA.py">
+    <entry file="file://$PROJECT_DIR$/automata/Automaton.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
@@ -533,27 +550,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/automata/NFA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/regex.dot">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/nfa.dot">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        <state relative-caret-position="150">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="75">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
           </folding>
@@ -562,11 +572,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/thompson/thompson.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="109" column="26" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
+        <state relative-caret-position="395">
+          <caret line="203" selection-start-line="203" selection-end-line="203" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/automata/Automaton.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
         </state>
       </provider>
     </entry>

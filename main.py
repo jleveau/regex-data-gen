@@ -3,7 +3,7 @@ from thompson.thompson import *
 
 if __name__ == "__main__":
     parser = Parser()
-    regex = "/aa*b/"
+    regex = "/a*ba/"
     NFA = None
     if not regex or regex == "//":
         NFA = Thompson.emptyWord()
@@ -12,8 +12,13 @@ if __name__ == "__main__":
         file = open("regex.dot", "w")
         file.write(tree.toDot())
         file.close()
-        NFA = Thompson.toNFA(tree)
 
-    file = open("nfa.dot", "w")
-    file.write(NFA.toDot())
-    file.close()
+        NFA = Thompson.toNFA(tree)
+        file = open("nfa.dot", "w")
+        file.write(NFA.toDot())
+        file.close()
+
+        DFA = NFA.determinize()
+        file = open("dfa.dot", "w")
+        file.write(DFA.toDot())
+        file.close()
