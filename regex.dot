@@ -1,8 +1,14 @@
 digraph G { 
-	2 -> 0;
+	5 -> 3;
+	3 -> 0;
+	3 -> 2;
 	2 -> 1;
-	2 [label= "Concat"] ;
+	5 -> 4;
+	5 [label= "Concat"] ;
+	3 [label= "Concat"] ;
 	0 [label= "a"] ;
+	2 [label= "Star"] ;
 	1 [label= "a"] ;
+	4 [label= "b"] ;
 
 }

@@ -2,44 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14f374c9-e21f-488f-8ef5-26b6e866953e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/regex-data-gen.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/automata/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/automata/automata.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nodes/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nodes/concat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nodes/group.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nodes/literal.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nodes/node.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nodes/star.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nodes/union.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/regex_parser/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/regex_parser/regex_parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thompson/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thompson/thompson.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/Regex.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/RegexBaseListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/RegexBaseVisitor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/RegexLexer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/RegexLexer.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/RegexListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/RegexParser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/RegexVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/automata/automata.py" beforeDir="false" afterPath="$PROJECT_DIR$/automata/NFA.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/Regex.g4" beforeDir="false" afterPath="$PROJECT_DIR$/regex_parser/Regex.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/baseparser.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/baseparser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/cmdoptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/cmdoptions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_internal/configuration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/scripts.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/scripts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/_inputstream.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/_inputstream.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/_tokenizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/_tokenizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/html5parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/html5parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/treeadapters/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/treeadapters/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/treebuilders/etree_lxml.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/html5lib/treebuilders/etree_lxml.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/packages/six.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/urllib3/packages/six.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nfa.dot" beforeDir="false" afterPath="$PROJECT_DIR$/nfa.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nfa.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/nfa.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/regex.dot" beforeDir="false" afterPath="$PROJECT_DIR$/regex.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thompson/thompson.py" beforeDir="false" afterPath="$PROJECT_DIR$/thompson/thompson.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,17 +19,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/generateData$main.coverage" NAME="main Coverage Results" MODIFIED="1528818627418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/regex_data_gen$parser.coverage" NAME="parser Coverage Results" MODIFIED="1528878722020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/regex_data_gen$main.coverage" NAME="main Coverage Results" MODIFIED="1528905455265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/generateData$main.coverage" NAME="main Coverage Results" MODIFIED="1528962916040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+            <state relative-caret-position="285">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
               </folding>
@@ -71,8 +40,8 @@
       <file leaf-file-name="Regex.g4" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regex_parser/Regex.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+            <state relative-caret-position="240">
+              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -80,7 +49,7 @@
       <file leaf-file-name="regex_parser.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regex_parser/regex_parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="270">
               <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
@@ -97,7 +66,7 @@
       <file leaf-file-name="RegexVisitor.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gen/RegexVisitor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
+            <state relative-caret-position="345">
               <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="e#100#120#0" expanded="true" />
@@ -109,8 +78,8 @@
       <file leaf-file-name="nfa.dot" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nfa.dot">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+            <state relative-caret-position="180">
+              <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -118,8 +87,8 @@
       <file leaf-file-name="thompson.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/thompson/thompson.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="106" column="14" lean-forward="true" selection-start-line="106" selection-start-column="14" selection-end-line="106" selection-end-column="14" />
+            <state relative-caret-position="476">
+              <caret line="109" column="26" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -137,11 +106,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="automata.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/automata/automata.py">
+      <file leaf-file-name="NFA.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/automata/NFA.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+            <state relative-caret-position="440">
+              <caret line="58" selection-start-line="58" selection-end-line="58" />
             </state>
           </provider>
         </entry>
@@ -190,6 +159,7 @@
         <option value="$PROJECT_DIR$/regex_parser/Regex.g4" />
         <option value="$PROJECT_DIR$/regex_parser/regex_parser.py" />
         <option value="$PROJECT_DIR$/automata/automata.py" />
+        <option value="$PROJECT_DIR$/automata/NFA.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/thompson/thompson.py" />
       </list>
@@ -219,27 +189,17 @@
         <subPane>
           <expand>
             <path>
-              <item name="regex-data-gen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="regex-data-gen" type="462c0819:PsiDirectoryNode" />
+              <item name="generateData" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generateData" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="regex-data-gen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="regex-data-gen" type="462c0819:PsiDirectoryNode" />
+              <item name="generateData" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generateData" type="462c0819:PsiDirectoryNode" />
               <item name="automata" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="regex-data-gen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="regex-data-gen" type="462c0819:PsiDirectoryNode" />
-              <item name="gen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="regex-data-gen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="regex-data-gen" type="462c0819:PsiDirectoryNode" />
-              <item name="regex_parser" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="regex-data-gen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="regex-data-gen" type="462c0819:PsiDirectoryNode" />
+              <item name="generateData" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generateData" type="462c0819:PsiDirectoryNode" />
               <item name="thompson" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -298,7 +258,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\jleveau\PycharmProjects\antlr\venv\Scripts\python.exe" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../untitled/venv/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -354,32 +314,32 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Tool Output" order="7" sideWeight="0.4986577" weight="0.32905984" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.53087246" side_tool="true" visible="true" weight="0.32905984" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.54399556" side_tool="true" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6510067" weight="0.32051283" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4691275" visible="true" weight="0.32905984" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" side_tool="true" visible="true" weight="0.2590604" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24966443" />
+      <window_info anchor="bottom" id="Python Console" order="7" sideWeight="0.4997233" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.63530713" weight="0.31995663" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.45600444" visible="true" weight="0.329718" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" side_tool="true" visible="true" weight="0.26231322" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4986577" weight="0.32905984" />
       <window_info anchor="bottom" id="ANTLR Preview" order="7" sideWeight="0.6563758" weight="0.4002849" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49463087" weight="0.3988604" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48920864" weight="0.39804772" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24966443" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4986577" weight="0.32905984" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,10 +350,80 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <option name="time" value="30" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regex_parser/Regex.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regex_parser/regex_parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regex_parser/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gen/RegexVisitor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#100#120#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nfa.dot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regex.dot">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/automata/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/automata/NFA.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thompson/thompson.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1500">
+          <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
@@ -411,29 +441,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gen/RegexListener.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gen/RegexVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="32" lean-forward="true" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gen/RegexParser.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/gen/RegexListener.java" />
+    <entry file="file://$PROJECT_DIR$/gen/RegexVisitor.java" />
+    <entry file="file://$PROJECT_DIR$/gen/RegexParser.java" />
     <entry file="file://$PROJECT_DIR$/regex_parser/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/790353636/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="5246" column="8" selection-start-line="5246" selection-start-column="8" selection-end-line="5246" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/790353636/builtins.py" />
     <entry file="file://$PROJECT_DIR$/nodes/group.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -441,9 +455,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/regex.ps">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/regex.ps" />
     <entry file="file://$PROJECT_DIR$/gen/RegexParser.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -496,14 +508,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/regex_parser/Regex.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        <state relative-caret-position="240">
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gen/RegexVisitor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
+        <state relative-caret-position="345">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="e#100#120#0" expanded="true" />
@@ -511,12 +523,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/regex.dot">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/regex_parser/regex_parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="270">
           <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
@@ -524,34 +533,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/automata/automata.py">
+    <entry file="file://$PROJECT_DIR$/automata/NFA.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+        <state relative-caret-position="440">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regex.dot">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nfa.dot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+        <state relative-caret-position="285">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nfa.dot">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/thompson/thompson.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="106" column="14" lean-forward="true" selection-start-line="106" selection-start-column="14" selection-end-line="106" selection-end-column="14" />
+        <state relative-caret-position="476">
+          <caret line="109" column="26" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>

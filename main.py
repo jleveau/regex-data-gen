@@ -3,7 +3,7 @@ from thompson.thompson import *
 
 if __name__ == "__main__":
     parser = Parser()
-    regex = "/aa/"
+    regex = "/aa*b/"
     NFA = None
     if not regex or regex == "//":
         NFA = Thompson.emptyWord()

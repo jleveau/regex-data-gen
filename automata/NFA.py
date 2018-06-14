@@ -14,6 +14,7 @@ class NFA:
         self.final = [final]
         self.transitions = {start: {NFA.EPSILON: [final]}}
         self.states = [start, final]
+        self.alphabet = []
 
 
     def addTransition(self, start, end, literal):
@@ -28,6 +29,9 @@ class NFA:
         if not literal in self.transitions[start]:
             self.transitions[start][literal] = []
         self.transitions[start][literal].append(end)
+
+        if not literal == NFA.EPSILON:
+            self.alphabet.append(literal)
 
     def addState(self):
         name = NFA.it

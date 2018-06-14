@@ -1,5 +1,5 @@
-from automata import automata
-from automata.automata import NFA
+from automata import NFA
+from automata.NFA import NFA
 from nodes.concat import Concat
 from nodes.literal import Literal
 from nodes.node import Node
@@ -80,32 +80,79 @@ def literal(literal: Literal):
     nfa.final = [state]
     return nfa
 
-def frontClosure(nfa: NFA, label, src, dest):
-    if not dest in nfa.transitions:
-        return
-    if not NFA.EPSILON in nfa.transitions[dest]:
-        return
+def hasEpsilonPathRec(nfa, current, dest, visited):
+    visited.append(current)
+    if current == dest:
+        return True
+    if not current in nfa.transitions:
+        return False
+    if not NFA.EPSILON in nfa.transitions[current]:
+        return False
 
-    for dest_epsilon in nfa.transitions[dest][NFA.EPSILON]:
-        nfa.addTransition(src, dest_epsilon, label)
-        frontClosure(nfa, label, src, dest_epsilon)
+    for state in nfa.transitions[current][NFA.EPSILON]:
+        if not state in visited:
+            if hasEpsilonPathRec(nfa, state, dest, visited):
+                return True
+    return False
 
-    for state in nfa.states:
-        if not state in nfa.transitions.keys():
-            nfa.states.remove(state)
+def hasEpsilonPath(nfa, src, dest):
+    return hasEpsilonPathRec(nfa, src, dest, [])
+
+def hasPathFromStartRec(nfa, state, current, visited):
+    visited.append(current)
+    if current in nfa.start:
+        return True
+    if not current in nfa.transitions:
+        return False
+
+
+def hasPathFromStart(nfa, state):
+    for start in nfa.start:
+        if hasPathFromStartRec(nfa, state, state, []):
+            return True
+    return False
+
 
 def removeEpsilon(nfa: NFA):
 
-    for state in nfa.transitions.keys():
-        for literal in nfa.transitions[state]:
-            if not literal == NFA.EPSILON:
-                for dest in nfa.transitions[state][literal]:
-                    frontClosure(nfa, literal, state, dest)
+    new_nfa = NFA()
+    new_nfa.states = []
+    new_nfa.start = []
+    new_nfa.end = []
+    new_nfa.transitions = {}
+    new_nfa.alphabet = nfa.alphabet.copy()
 
-    for state in nfa.transitions.keys():
-        nfa.transitions[state][NFA.EPSILON] = []
+    copyState(nfa, new_nfa)
 
-    return nfa
+    for start in nfa.start:
+        if start in nfa.transitions:
+            for state in nfa.states:
+                if hasEpsilonPath(nfa, start, state):
+                    new_nfa.start.append(state)
+
+    for state in nfa.states:
+        for final_state in nfa.final:
+            if hasEpsilonPath(nfa, state, final_state):
+                new_nfa.final.append(state)
+
+
+    for state_src in nfa.states:
+        for state_dest in nfa.states:
+            if state_dest != state_src:
+                if hasEpsilonPath(nfa, state_src, state_dest):
+                    for state_epsilon_dest in nfa.states:
+                        if hasEpsilonPath(nfa, state_dest, state_epsilon_dest):
+                            if state_dest in nfa.transitions:
+                                for literal in nfa.transitions[state_dest]:
+                                    if literal != NFA.EPSILON:
+                                        for epsilon_dest in nfa.transitions[state_dest][literal]:
+                                            new_nfa.addTransition(state_src, epsilon_dest, literal)
+
+
+    for state in new_nfa.states:
+        if not state in new_nfa.transitions:
+            new_nfa.states.remove(state)
+    return new_nfa
 
 def build(regextree: Node) -> NFA:
 
