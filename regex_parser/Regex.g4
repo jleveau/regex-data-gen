@@ -1,15 +1,15 @@
 grammar Regex;
 
-
-expr: expr expr |
+group: GROUP_OP_L expr GROUP_OP_R;
+star : LITERAL STAR |
+       group STAR;
+expr:
+      expr expr |
       expr OR_OP expr |
-      expr STAR |
-      expr QUESTION_MARK |
-      expr PLUS |
-      GROUP_OP_L expr GROUP_OP_R |
+      group |
+      star |
       LITERAL
       ;
-
 
 regex : '/' expr '/';
 

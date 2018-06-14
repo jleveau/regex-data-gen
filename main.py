@@ -1,73 +1,19 @@
-
-
-def mustHaveLength(len):
-    DFA = {}
-    for i in range(len):
-        DFA[i] = {}
-        DFA[i]["*"] = i+1
-    DFA["final"] = len
-    return DFA
-
-
-def mustMatch(regex):
-
-    return
-
-
-def generate(DFA, word = [], current_state = 0, colored = []):
-
-    colored.append(current_state)
-
-    if DFA["final"] == current_state:
-        return word
-
-    possible_states = DFA[current_state]
-
-
-    for key in possible_states.keys():
-        if not key in colored:
-            new_word = word.copy()
-            new_word.append(key)
-            return generate(DFA, new_word, possible_states[key])
-
-
-def linearize(regex):
-    linear = []
-    i = 0
-    for letter in list(regex):
-        if letter in ['+', '*', '(', ')', '?']:
-            linear.append(letter)
-        else:
-            linear.append(letter + str(i))
-            i+=1
-
-    return linear
-
-
-def P(linear):
-
-    return
-
-def D(linear):
-    return
-
-def F(linear):
-    return
-
-def emptyWord(linear):
-    return
-
-
-def glushkov(regex):
-    linear = linearize(regex)
-    print(linear)
-    p = P(linear)
-    d = D(linear)
-    f = F(linear)
-
+from regex_parser.regex_parser import Parser
+from thompson.thompson import *
 
 if __name__ == "__main__":
-    #word = generate(mustHaveLength(4))
-    regex = "aa*b"
+    parser = Parser()
+    regex = "/aa/"
+    NFA = None
+    if not regex or regex == "//":
+        NFA = Thompson.emptyWord()
+    else :
+        tree = parser.run(regex)
+        file = open("regex.dot", "w")
+        file.write(tree.toDot())
+        file.close()
+        NFA = Thompson.toNFA(tree)
 
-    print(linearize(regex))
+    file = open("nfa.dot", "w")
+    file.write(NFA.toDot())
+    file.close()
