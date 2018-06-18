@@ -25,7 +25,6 @@ def hasPathFromStart(nfa, state):
 
 class Automata:
 
-
     def __init__(self):
         self.start = []
         self.final = []
@@ -34,31 +33,25 @@ class Automata:
 
     it = 0
     EPSILON = "e"
-    ALPHABET_START = 96
-    ALPHABET_END = 102
-
 
     def addTransition(self, start, end, literal):
         if not start in self.states :
-            raise Exception("Cannot create transition, state does not exists : " + start)
+            raise Exception("Cannot create transition, state does not exists : " + str(start))
         if not end in self.states :
-            raise Exception("Cannot create transition, state does not exists : " + end)
+            raise Exception("Cannot create transition, state does not exists : " + str(end))
 
         if not start in self.transitions:
             self.transitions[start] = {}
-
         if not literal in self.transitions[start]:
             self.transitions[start][literal] = []
         if not end in  self.transitions[start][literal]:
             self.transitions[start][literal].append(end)
+        return
 
-
-    def isInAlphabet(self, literal):
-        return Automata.ALPHABET_START < literal < Automata.ALPHABET_END
 
     def addState(self):
-        name = Automata.it
         Automata.it += 1
+        name = Automata.it
         self.states.append(name)
         return name
 
@@ -81,8 +74,6 @@ class Automata:
         for state in self.states:
             if not hasPathFromStart(self, state):
                 to_remove.add(state)
-
-
 
         for state in to_remove:
             if state in self.start:
@@ -135,7 +126,10 @@ class Automata:
                     s = "..."
                 else:
                     for label in transitions[state][dest]:
-                        s += chr(label) + " "
+                        if isinstance(label, str):
+                            s += label
+                        else:
+                          s += chr(label) + " "
                         i+=1
                         if i > 5:
                             s += "..."

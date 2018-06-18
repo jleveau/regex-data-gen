@@ -20,10 +20,39 @@ class RegexVisitor(ParseTreeVisitor):
         return Group(self.visitExpr(ctx.expr()))
 
     def visitStar(self, ctx:RegexParser.StarContext):
-        if ctx.LITERAL():
-            return Star(Literal(ctx.LITERAL().getText()))
+        if ctx.literal_expression():
+            return Star(self.visitLiteralExpression(ctx.literal_expression()))
         else :
             return Star(self.visitGroup(ctx.group()))
+
+    def visitClassname(self, ctx: RegexParser.Class_nameContext) -> Literal:
+        return Literal(ctx.CLASSNAME().getText())
+
+    def visitCharacterClass(self, ctx:RegexParser.Character_classContext) -> Literal:
+        if ctx.LITERAL():
+            if len(ctx.LITERAL()) > 1:
+                return Literal.fromRange(ctx.LITERAL()[0].getText(), ctx.LITERAL()[1].getText())
+            else:
+                return Literal(ctx.LITERAL()[0].getText())
+        if ctx.class_name():
+            return self.visitClassname(ctx.class_name())
+
+    def visitCharacterClassList(self, ctx:RegexParser.Character_class_listContext) -> Literal:
+        if ctx.character_class():
+            literal = self.visitCharacterClass(ctx.character_class())
+            literal2 = self.visitCharacterClassList(ctx.character_class_list())
+            if literal2:
+                literal.alphabet += literal2.alphabet
+            return literal
+
+    def visitBracketExpression(self, ctx:RegexParser.Bracket_expressionContext) -> Literal:
+        return self.visitCharacterClassList(ctx.character_class_list())
+
+    def visitLiteralExpression(self, ctx:RegexParser.Literal_expressionContext) -> Literal:
+        if ctx.LITERAL():
+            return Literal(ctx.LITERAL().getText())
+        elif ctx.bracket_expression():
+            return self.visitBracketExpression(ctx.bracket_expression())
 
     # Visit a parse tree produced by RegexParser#expr.
     def visitExpr(self, ctx:RegexParser.ExprContext):
@@ -36,8 +65,8 @@ class RegexVisitor(ParseTreeVisitor):
         if ctx.group():
             return self.visitGroup(ctx.group())
 
-        if ctx.LITERAL():
-            return Literal(ctx.getText())
+        if ctx.literal_expression():
+            return self.visitLiteralExpression(ctx.literal_expression())
 
         elif ctx.expr().__len__() == 2:
             return Concat(self.visitExpr(ctx.expr()[0]), self.visitExpr(ctx.expr()[1]))

@@ -1,6 +1,71 @@
+from automata.alphabet_iterator import Alphabet
 from automata.automata import Automata
 
+def updateEquivalenceClasses(dfa: 'DFA', state, new_equiv_classes, equiv_classes):
+    class_found = False
+    old_class = None
+    for i in range(len(equiv_classes)):
+        if state in equiv_classes[i]:
+            old_class = i
+    for i in range(len(equiv_classes)):
+        if len(equiv_classes[i]) == 1 and equiv_classes[i][0] == state:
+            new_equiv_classes.append([state])
+            class_found = True
+            break
+        isInClass = True
 
+        state2 = equiv_classes[i][0]
+        if state == state2:
+            continue
+
+        for label in dfa.transitions[state]:
+            for dest in dfa.transitions[state][label]:
+                dest_class = None
+                for i in range(len(equiv_classes)):
+                    if dest in equiv_classes[i]:
+                        dest_class = i
+                if dest_class == old_class:
+                    isInClass = False
+                    break
+
+            if not isInClass:
+                break
+        if isInClass:
+            if i >= len(new_equiv_classes):
+                new_equiv_classes.append([state])
+            else :
+                new_equiv_classes[i].append(state)
+            class_found = True
+            break
+
+    if not class_found:
+        new_equiv_classes.append([state])
+
+    return new_equiv_classes
+
+
+
+def createFromEquivClasses(dfa: 'DFA', equiv_classes) -> 'DFA':
+    new_dfa = DFA()
+    names = []
+    state_dict = {}
+    for i in range(len(equiv_classes)):
+        names.append(new_dfa.addState())
+
+    for state in dfa.states:
+        for i in range(len(equiv_classes)):
+            if state in equiv_classes[i]:
+                state_dict[state] = names[i]
+
+    for state in dfa.states:
+        for label in Alphabet():
+            new_dfa.addTransition(state_dict[state], state_dict[dfa.transitions[state][label][0]], label)
+
+
+    for final_state in dfa.final:
+        new_dfa.final.append(state_dict[final_state])
+    new_dfa.start = [state_dict[dfa.start[0]]]
+    return new_dfa
 
 class DFA(Automata):
 
@@ -9,22 +74,38 @@ class DFA(Automata):
 
     def negation(self) -> 'DFA':
         new_dfa = DFA()
-        new_dfa.start = self.start.copy()
+        equiv_states = {}
+        for state in self.states:
+            equiv_states[state] = new_dfa.addState()
+
+        new_dfa.start = []
+        for start in self.start:
+            new_dfa.start.append(equiv_states[start])
+
         for state in self.states:
             if state not in self.final:
-                new_dfa.final.append(state)
-            new_dfa.states.append(state)
+                new_dfa.final.append(equiv_states[state])
 
-        new_dfa.copyTransition(self)
+        for state in self.states:
+            for label in self.transitions[state]:
+                for dest in self.transitions[state][label]:
+                    new_dfa.addTransition(equiv_states[state], equiv_states[dest], label)
         return new_dfa
 
     def union(self, dfa) -> 'DFA':
         from automata.NFA import NFA
         union_nfa = NFA()
 
-        union_nfa.copyState(self)
-        union_nfa.copyTransition(self)
         equiv_states = {}
+
+        for state in self.states:
+            equiv_states[state] = union_nfa.addState()
+
+        for state in self.transitions:
+            for literal in self.transitions[state]:
+                for dest in self.transitions[state][literal]:
+                    union_nfa.addTransition(equiv_states[state], equiv_states[dest], literal)
+
         for state in dfa.states:
             equiv_states[state] = union_nfa.addState()
 
@@ -35,11 +116,10 @@ class DFA(Automata):
 
         start = union_nfa.addState()
         union_nfa.start = [start]
-        union_nfa.addTransition(start, self.start[0], Automata.EPSILON)
+        union_nfa.addTransition(start, equiv_states[self.start[0]], Automata.EPSILON)
         union_nfa.addTransition(start, equiv_states[dfa.start[0]], Automata.EPSILON)
 
-        union_nfa.final += self.final
-        for final_state in dfa.final:
+        for final_state in dfa.final + self.final:
             union_nfa.final.append(equiv_states[final_state])
         union_nfa.final += dfa.final
 
@@ -49,70 +129,26 @@ class DFA(Automata):
     def intersection(self, dfa):
         neg_dfa1 = self.negation()
         neg_dfa2 = dfa.negation()
-        union = neg_dfa1.union(neg_dfa2)
 
-        inter = union.negation()
-        return inter
+        union = neg_dfa1.union(neg_dfa2)
+        return union.negation()
 
 
     def minimize(self):
-        it = 0
-        previous_equiv_classes = {}
-        for notfinal_state in (set(self.states) - set(self.final)):
-            previous_equiv_classes[notfinal_state] = it
+        equiv_classes = [[], []]
+        equiv_classes[0] = list(set(self.states) - set(self.final))
+        equiv_classes[1] = self.final.copy()
 
-        it += 1
-        for final_state in self.final:
-            previous_equiv_classes[final_state] = it
+        while True:
+            new_equiv_classes = []
+            for state in self.states:
+                new_equiv_classes = updateEquivalenceClasses(self, state, new_equiv_classes, equiv_classes)
+            if len(equiv_classes) == len(new_equiv_classes):
+                break
+            equiv_classes = new_equiv_classes
+        return createFromEquivClasses(self, equiv_classes)
 
 
-        finished = False
-        new_equiv_classes = {}
-        while not finished:
-            new_equiv_classes = {}
-            old_it = it
-            for state1 in self.states:
-                same = True
-                for state2 in self.states:
-                    if state1 == state2:
-                        continue
-                    if previous_equiv_classes[state1] != previous_equiv_classes[state2]:
-                        continue
-                    if state2 in new_equiv_classes:
-                        continue
-                    for label in range(Automata.ALPHABET_START, Automata.ALPHABET_END):
-                        dest1 = self.transitions[state1][label][0]
-                        dest2 = self.transitions[state2][label][0]
-                        if previous_equiv_classes[dest1] != previous_equiv_classes[dest2]:
-                            it += 1
-                            new_equiv_classes[state2] = it
-                            same = False
-                            break
-                if same:
-                    new_equiv_classes[state1] = previous_equiv_classes [state1]
-
-            if old_it == it:
-                finished = True
-            previous_equiv_classes = new_equiv_classes
-
-        dfa = DFA()
-
-        for state in self.states:
-            new_state = previous_equiv_classes[state]
-            dfa.states.append(new_state)
-
-        for state in self.states:
-            if state in self.transitions:
-                for label in self.transitions[state]:
-                    dest = self.transitions[state][label][0]
-                    dfa.addTransition(new_equiv_classes[state], new_equiv_classes[dest], label)
-
-        dfa.start = [new_equiv_classes[self.start[0]]]
-        for final_state in self.final:
-            if new_equiv_classes[final_state] not in dfa.final:
-                dfa.final.append(new_equiv_classes[final_state])
-
-        return dfa
 
 
 

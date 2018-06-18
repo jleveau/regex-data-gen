@@ -1,4 +1,5 @@
 from automata.DFA import DFA
+from automata.alphabet_iterator import Alphabet
 from automata.automata import Automata
 
 
@@ -41,7 +42,7 @@ class NFA(Automata):
 
         while it < len(group_state_list):
             src = group_state_list[it]
-            for literal in range(Automata.ALPHABET_START, Automata.ALPHABET_END):
+            for literal in Alphabet():
                 dest = []
                 for state in src:
                     if state in self.transitions and literal in self.transitions[state]:
@@ -87,7 +88,7 @@ class NFA(Automata):
 
         for state_name in state_names:
             if len(state_name) == 0:
-                for literal in range(Automata.ALPHABET_START, Automata.ALPHABET_END):
+                for literal in Alphabet():
                     dfa.addTransition(state_names[state_name], state_names[state_name], literal)
                 break
 

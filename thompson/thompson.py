@@ -1,5 +1,7 @@
 from automata import NFA
 from automata.NFA import NFA
+from automata.alphabet_iterator import Alphabet
+from automata.automata import Automata
 from nodes.concat import Concat
 from nodes.group import Group
 from nodes.literal import Literal
@@ -71,10 +73,11 @@ def literal(literal: Literal):
     nfa.start = [start]
     nfa.final = [final]
 
-    nfa.addTransition(nfa.start[0], nfa.final[0], ord(literal.name))
+    for label in literal.alphabet:
+        if not Alphabet.isInAlphabet(label):
+            Alphabet.addToAlphabet(label)
+        nfa.addTransition(nfa.start[0], nfa.final[0], ord(label))
     return nfa
-
-
 
 def build(regextree: Node) -> NFA:
     if not regextree:

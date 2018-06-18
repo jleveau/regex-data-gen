@@ -4,28 +4,33 @@ from thompson.thompson import *
 if __name__ == "__main__":
     parser = Parser()
 
-    regex1 = "/(a*a*a*ba*b)*/"
-    regex2 = "/ba*b/"
+    # regex1 = "/(a*a*a*ba*b)*/"
+    regex2 = "/[:digit:]/"
 
-    tree1 = parser.run(regex1)
+    # tree1 = parser.run(regex1)
     tree2 = parser.run(regex2)
 
-    NFA1 = Thompson.toNFA(tree1)
+    # NFA1 = Thompson.toNFA(tree1)
     NFA2 = Thompson.toNFA(tree2)
 
 
-    DFA1 = NFA1.NFAtoDFA()
+    # DFA1 = NFA1.NFAtoDFA()
     DFA2 = NFA2.NFAtoDFA()
-
-    DFA = DFA1.intersection(DFA2)
-    file = open("dfa1.dot", "w")
+    # DFA2 = DFA2.minimize()
+    DFA = DFA2
+    file = open("dfa.dot", "w")
     file.write(DFA.toDot())
     file.close()
 
-    DFA = DFA.minimize()
-    file = open("dfa_min.dot", "w")
+    DFA = DFA2.intersection(DFA2)
+    file = open("dfa_inter.dot", "w")
     file.write(DFA.toDot())
     file.close()
+
+    # DFA = DFA2.minimize()
+    # file = open("dfa_min.dot", "w")
+    # file.write(DFA.toDot())
+    # file.close()
 
     # DFA2 = NFA2.NFAtoDFA()
     # file = open("dfa2.dot", "w")
