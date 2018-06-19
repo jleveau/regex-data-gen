@@ -1,28 +1,27 @@
-from automata.automata import Automata
 
 
 class Alphabet:
 
-    alphabet = []
     def __init__(self):
-        self.i = 0
-        self.n = len(Alphabet.alphabet)
+        self.letters = set()
+        for i in range(256):
+            self.letters.add(chr(i))
 
     def __iter__(self):
-        return self
+        return list(self.letters).__iter__()
 
-    def __next__ (self):
-        if self.i < self.n:
-            i = self.i
-            self.i += 1
-            return i
-        else:
-            raise StopIteration()
+    def next(self):
+        return list(self.letters).next()
 
-    @staticmethod
-    def isInAlphabet(literal):
-        return literal in Alphabet.alphabet
+    def isInAlphabet(self, literal):
+        return literal in self.letters
 
-    @staticmethod
-    def addToAlphabet(l):
-        Alphabet.alphabet.append(l)
+    def addToAlphabet(self, l):
+        self.letters.add(l)
+
+    def mergeAlphabet(self, alphabet):
+        for l in alphabet:
+            self.letters.add(l)
+
+    def interAlphabet(self, alphabet):
+        return self.letters.intersection(alphabet)

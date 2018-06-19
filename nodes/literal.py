@@ -1,16 +1,16 @@
 from nodes.node import Node
 
-digit = "0123456789"
-lower =  "abcdefghijklmnopqrstuvwxyz"
-upper =  "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+digit = list("0123456789")
+lower =  list("abcdefghijklmnopqrstuvwxyz")
+upper =  list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 alpha = lower + upper + digit
-word =  lower + upper + '_'
-blank = " \t"
-space = blank + '\t\r\n\v\f'
-punct = '!"\#$%&\'()*+,\-./:;<=>?@\[\\\]^_`{|}~'
-
+word =  lower + upper + ['_']
+blank = list(" \t")
+space = blank + list('\t\r\n\v\f')
+punct = list('!"\#$%&\'()*+,\-./:;<=>?@\[\\\]^_`{|}~')
 
 class Literal(Node):
+
     def __init__(self, alphabet):
         if isinstance(alphabet, list):
             self.alphabet = alphabet.copy()
@@ -19,10 +19,14 @@ class Literal(Node):
         super().__init__(self.alphabet, [])
 
     @staticmethod
+    def fromAny() -> 'Literal':
+        return Literal.fromRange(chr(0), chr(255))
+
+    @staticmethod
     def fromRange(first, last) -> 'Literal':
         alphabet = []
-        for i in range(first, last+1):
-            alphabet.append(chr(i))
+        for i in range(ord(first), ord(last)+1):
+            alphabet.append(str(chr(i)))
         return Literal(alphabet)
 
     @staticmethod

@@ -26,7 +26,7 @@ class RegexVisitor(ParseTreeVisitor):
             return Star(self.visitGroup(ctx.group()))
 
     def visitClassname(self, ctx: RegexParser.Class_nameContext) -> Literal:
-        return Literal(ctx.CLASSNAME().getText())
+        return Literal.fromClass(ctx.CLASSNAME().getText())
 
     def visitCharacterClass(self, ctx:RegexParser.Character_classContext) -> Literal:
         if ctx.LITERAL():
@@ -51,6 +51,10 @@ class RegexVisitor(ParseTreeVisitor):
     def visitLiteralExpression(self, ctx:RegexParser.Literal_expressionContext) -> Literal:
         if ctx.LITERAL():
             return Literal(ctx.LITERAL().getText())
+        elif ctx.SPECIAL_CHAR():
+            return Literal(ctx.SPECIAL_CHAR().getText()[1:])
+        elif ctx.ANY_CHAR():
+            return Literal.fromAny()
         elif ctx.bracket_expression():
             return self.visitBracketExpression(ctx.bracket_expression())
 

@@ -1,43 +1,42 @@
+import os
+
 from regex_parser.regex_parser import Parser
 from thompson.thompson import *
+import sys
 
 if __name__ == "__main__":
     parser = Parser()
 
-    # regex1 = "/(a*a*a*ba*b)*/"
-    regex2 = "/[:digit:]/"
+    regex_list = sys.argv
+    regex_list.pop(0)
 
-    # tree1 = parser.run(regex1)
-    tree2 = parser.run(regex2)
+    dfa_list = []
+    i = 0
+    for regex in regex_list:
+        NFA = Thompson.toNFA(parser.run(regex))
+        DFA = NFA.NFAtoDFA()
+        dfa_list.append(DFA)
 
-    # NFA1 = Thompson.toNFA(tree1)
-    NFA2 = Thompson.toNFA(tree2)
+        file = open(os.path.join("output", "dfa" + str(i) + ".dot"), "w")
+        file.write(DFA.toDot())
+        file.close()
+        i += 1
 
-
-    # DFA1 = NFA1.NFAtoDFA()
-    DFA2 = NFA2.NFAtoDFA()
-    # DFA2 = DFA2.minimize()
-    DFA = DFA2
-    file = open("dfa.dot", "w")
+    dfa_inter = dfa_list[0]
+    for i in range(0, len(dfa_list)):
+        dfa_inter = dfa_inter.intersection(dfa_list[i])
+    file = open(os.path.join("output", "dfa_inter.dot"), "w")
     file.write(DFA.toDot())
     file.close()
 
-    DFA = DFA2.intersection(DFA2)
-    file = open("dfa_inter.dot", "w")
-    file.write(DFA.toDot())
-    file.close()
+    from subprocess import call
+    i = 0
+    for dfa in dfa_list:
+        print("i : " + dfa.generateWord())
+        call(["dot", "-Tpdf", os.path.join("output", "dfa" + str(i) + ".dot"), '-o' , os.path.join("output", "dfa" + str(i) + ".pdf")])
+        os.remove( os.path.join("output", "dfa" + str(i) + ".dot"))
+        i += 1
 
-    # DFA = DFA2.minimize()
-    # file = open("dfa_min.dot", "w")
-    # file.write(DFA.toDot())
-    # file.close()
-
-    # DFA2 = NFA2.NFAtoDFA()
-    # file = open("dfa2.dot", "w")
-    # file.write(DFA2.toDot())
-    # file.close()
-    #
-    # DFA_inter = DFA1.intersection(DFA2)
-    # file = open("dfa_inter.dot", "w")
-    # file.write(DFA_inter.toDot())
-    # file.close()
+    call(["dot", "-Tpdf", os.path.join("output", "dfa_inter.dot"), '-o' , os.path.join("output", "dfa_inter.pdf")])
+    os.remove(os.path.join("output", "dfa_inter.dot"))
+    print("inter :" + dfa.generateWord())

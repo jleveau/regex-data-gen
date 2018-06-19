@@ -1,7 +1,0 @@
-digraph G { 
-	12 [label= "12", color=blue] ;
-	13 [label= "13"] ;
-	12 -> 13[label="'...'"];
-	13 -> 13[label="'...'"];
-
-}

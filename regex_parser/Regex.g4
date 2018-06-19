@@ -15,7 +15,9 @@ character_class_list: character_class character_class_list |
 bracket_expression : '[' character_class_list ']';
 
 literal_expression: bracket_expression |
-                    LITERAL;
+                    LITERAL |
+                    ANY_CHAR |
+                    SPECIAL_CHAR;
 
 group : GROUP_OP_L expr GROUP_OP_R;
 star  : literal_expression STAR |
@@ -29,13 +31,20 @@ expr:
       literal_expression
       ;
 
-regex : '/' expr '/';
+regex : SLASH expr SLASH;
 
 PLUS:   '+';
+ANY_CHAR: '.';
 STAR:   '*';
 QUESTION_MARK : '?';
 OR_OP : '|';
 GROUP_OP_L: '(';
 GROUP_OP_R: ')';
+BRACKET_L: '[';
+BRACKET_R: ']';
+SLASH: '/';
 CLASSNAME: '[:digit:]' | '[:lower:]' | '[:upper:]' | '[:alpha:]' | '[:word:]' | '[:blank:]' | '[:space:]' | '[:punct:]';
-LITERAL: . ;
+
+SPECIAL_CHAR:  '\\' (BRACKET_L | SLASH |'-' | OR_OP | QUESTION_MARK | PLUS | STAR | GROUP_OP_L | GROUP_OP_R |'\'' | BRACKET_R | '\\' | '"' | ANY_CHAR);
+
+LITERAL: '-' | . ;

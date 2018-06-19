@@ -1,5 +1,4 @@
 from automata.DFA import DFA
-from automata.alphabet_iterator import Alphabet
 from automata.automata import Automata
 
 
@@ -34,6 +33,7 @@ class NFA(Automata):
 
         self.start.sort()
         src = tuple(self.start)
+
         start = src
         powerset = {src: {}}
 
@@ -42,7 +42,7 @@ class NFA(Automata):
 
         while it < len(group_state_list):
             src = group_state_list[it]
-            for literal in Alphabet():
+            for literal in self.alphabet:
                 dest = []
                 for state in src:
                     if state in self.transitions and literal in self.transitions[state]:
@@ -53,42 +53,38 @@ class NFA(Automata):
                 dest.sort()
                 dest = tuple(dest)
                 powerset[src][literal] = dest
-                if len(dest) > 0:
-                    if dest not in powerset:
-                        powerset[dest] = {}
-                        group_state_list.append(dest)
+                if len(dest) > 0 and dest not in powerset:
+                    powerset[dest] = {}
+                    group_state_list.append(dest)
             it += 1
 
-        states = powerset.keys()
         state_names = {}
-        it = 0
+        for state in powerset:
+            state_names[state] = dfa.addState()
 
-        for state in states:
-            if state not in state_names:
-                state_names[state] = it
-            dfa.states.append(it)
-            it += 1
-
+        for state in powerset:
             for label in powerset[state]:
-                if not powerset[state][label] in state_names:
-                    state_names[powerset[state][label]] = it
-                    if state_names[powerset[state][label]] not in state_names:
-                        dfa.states.append(it)
-                        it += 1
+                if powerset[state][label] not in state_names:
+                    state_names[powerset[state][label]] = dfa.addState()
 
                 dfa.addTransition(state_names[state], state_names[powerset[state][label]], label)
 
         dfa.start = [state_names[start]]
 
-        for state in states:
+        for state in powerset:
             for sub_state in state:
                 if sub_state in self.final and state_names[state] not in dfa.final:
                     dfa.final.append(state_names[state])
                     break
 
+        for final_state in self.final:
+            for state in powerset:
+                if final_state in state:
+                    dfa.final.append(state_names[state])
+
         for state_name in state_names:
             if len(state_name) == 0:
-                for literal in Alphabet():
+                for literal in self.alphabet:
                     dfa.addTransition(state_names[state_name], state_names[state_name], literal)
                 break
 
@@ -121,8 +117,9 @@ class NFA(Automata):
 
         for state_src in self.states:
             for state_dest in self.states:
-
-                if state_dest != state_src and hasEpsilonPath(self, state_src, state_dest) and state_dest in self.transitions:
+                if state_dest != state_src \
+                        and hasEpsilonPath(self, state_src, state_dest) \
+                        and state_dest in self.transitions:
                     for literal in self.transitions[state_dest]:
                         if literal != NFA.EPSILON:
                             for epsilon_dest in self.transitions[state_dest][literal]:

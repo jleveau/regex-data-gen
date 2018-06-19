@@ -74,9 +74,7 @@ def literal(literal: Literal):
     nfa.final = [final]
 
     for label in literal.alphabet:
-        if not Alphabet.isInAlphabet(label):
-            Alphabet.addToAlphabet(label)
-        nfa.addTransition(nfa.start[0], nfa.final[0], ord(label))
+        nfa.addTransition(nfa.start[0], nfa.final[0], label)
     return nfa
 
 def build(regextree: Node) -> NFA:
@@ -104,7 +102,7 @@ def build(regextree: Node) -> NFA:
         return build(regextree.getChildren()[0])
 
     else :
-        raise "Cannot build NFA for : " + str(regextree)
+        raise Exception("Cannot build NFA for : :" + str(regextree))
 
 
 class Thompson:

@@ -1,4 +1,3 @@
-from automata.alphabet_iterator import Alphabet
 from automata.automata import Automata
 
 def updateEquivalenceClasses(dfa: 'DFA', state, new_equiv_classes, equiv_classes):
@@ -58,9 +57,8 @@ def createFromEquivClasses(dfa: 'DFA', equiv_classes) -> 'DFA':
                 state_dict[state] = names[i]
 
     for state in dfa.states:
-        for label in Alphabet():
+        for label in dfa.alphabet:
             new_dfa.addTransition(state_dict[state], state_dict[dfa.transitions[state][label][0]], label)
-
 
     for final_state in dfa.final:
         new_dfa.final.append(state_dict[final_state])
@@ -129,9 +127,10 @@ class DFA(Automata):
     def intersection(self, dfa):
         neg_dfa1 = self.negation()
         neg_dfa2 = dfa.negation()
-
+        print(neg_dfa1.alphabet.letters.difference(neg_dfa2.alphabet.letters))
         union = neg_dfa1.union(neg_dfa2)
-        return union.negation()
+        inter = union.negation()
+        return inter.minimize()
 
 
     def minimize(self):

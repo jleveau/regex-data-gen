@@ -1,4 +1,4 @@
-# Generated from C:/Users/jleveau/PycharmProjects/regex-data-gen/regex_parser\Regex.g4 by ANTLR 4.7
+# Generated from /home/jleveau/PycharmProjects/generateData/regex_parser/Regex.g4 by ANTLR 4.7
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -7,30 +7,31 @@ import sys
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\16")
-        buf.write("L\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\20")
+        buf.write("N\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
         buf.write("\t\b\4\t\t\t\4\n\t\n\3\2\3\2\3\3\3\3\3\3\3\3\3\3\5\3\34")
         buf.write("\n\3\3\4\3\4\3\4\3\4\5\4\"\n\4\3\5\3\5\3\5\3\5\3\6\3\6")
-        buf.write("\5\6*\n\6\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\b\5\b")
-        buf.write("\66\n\b\3\t\3\t\3\t\3\t\5\t<\n\t\3\t\3\t\3\t\3\t\3\t\7")
-        buf.write("\tC\n\t\f\t\16\tF\13\t\3\n\3\n\3\n\3\n\3\n\2\3\20\13\2")
-        buf.write("\4\6\b\n\f\16\20\22\2\2\2K\2\24\3\2\2\2\4\33\3\2\2\2\6")
-        buf.write("!\3\2\2\2\b#\3\2\2\2\n)\3\2\2\2\f+\3\2\2\2\16\65\3\2\2")
-        buf.write("\2\20;\3\2\2\2\22G\3\2\2\2\24\25\7\r\2\2\25\3\3\2\2\2")
-        buf.write("\26\34\7\16\2\2\27\34\5\2\2\2\30\31\7\16\2\2\31\32\7\3")
-        buf.write("\2\2\32\34\7\16\2\2\33\26\3\2\2\2\33\27\3\2\2\2\33\30")
-        buf.write("\3\2\2\2\34\5\3\2\2\2\35\36\5\4\3\2\36\37\5\6\4\2\37\"")
-        buf.write("\3\2\2\2 \"\3\2\2\2!\35\3\2\2\2! \3\2\2\2\"\7\3\2\2\2")
-        buf.write("#$\7\4\2\2$%\5\6\4\2%&\7\5\2\2&\t\3\2\2\2\'*\5\b\5\2(")
-        buf.write("*\7\16\2\2)\'\3\2\2\2)(\3\2\2\2*\13\3\2\2\2+,\7\13\2\2")
-        buf.write(",-\5\20\t\2-.\7\f\2\2.\r\3\2\2\2/\60\5\n\6\2\60\61\7\b")
-        buf.write("\2\2\61\66\3\2\2\2\62\63\5\f\7\2\63\64\7\b\2\2\64\66\3")
-        buf.write("\2\2\2\65/\3\2\2\2\65\62\3\2\2\2\66\17\3\2\2\2\678\b\t")
-        buf.write("\1\28<\5\f\7\29<\5\16\b\2:<\5\n\6\2;\67\3\2\2\2;9\3\2")
-        buf.write("\2\2;:\3\2\2\2<D\3\2\2\2=>\f\7\2\2>C\5\20\t\b?@\f\6\2")
-        buf.write("\2@A\7\n\2\2AC\5\20\t\7B=\3\2\2\2B?\3\2\2\2CF\3\2\2\2")
-        buf.write("DB\3\2\2\2DE\3\2\2\2E\21\3\2\2\2FD\3\2\2\2GH\7\6\2\2H")
-        buf.write("I\5\20\t\2IJ\7\6\2\2J\23\3\2\2\2\t\33!)\65;BD")
+        buf.write("\3\6\3\6\5\6,\n\6\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b")
+        buf.write("\3\b\5\b8\n\b\3\t\3\t\3\t\3\t\5\t>\n\t\3\t\3\t\3\t\3\t")
+        buf.write("\3\t\7\tE\n\t\f\t\16\tH\13\t\3\n\3\n\3\n\3\n\3\n\2\3\20")
+        buf.write("\13\2\4\6\b\n\f\16\20\22\2\2\2O\2\24\3\2\2\2\4\33\3\2")
+        buf.write("\2\2\6!\3\2\2\2\b#\3\2\2\2\n+\3\2\2\2\f-\3\2\2\2\16\67")
+        buf.write("\3\2\2\2\20=\3\2\2\2\22I\3\2\2\2\24\25\7\16\2\2\25\3\3")
+        buf.write("\2\2\2\26\34\7\20\2\2\27\34\5\2\2\2\30\31\7\20\2\2\31")
+        buf.write("\32\7\3\2\2\32\34\7\20\2\2\33\26\3\2\2\2\33\27\3\2\2\2")
+        buf.write("\33\30\3\2\2\2\34\5\3\2\2\2\35\36\5\4\3\2\36\37\5\6\4")
+        buf.write("\2\37\"\3\2\2\2 \"\3\2\2\2!\35\3\2\2\2! \3\2\2\2\"\7\3")
+        buf.write("\2\2\2#$\7\13\2\2$%\5\6\4\2%&\7\f\2\2&\t\3\2\2\2\',\5")
+        buf.write("\b\5\2(,\7\20\2\2),\7\5\2\2*,\7\17\2\2+\'\3\2\2\2+(\3")
+        buf.write("\2\2\2+)\3\2\2\2+*\3\2\2\2,\13\3\2\2\2-.\7\t\2\2./\5\20")
+        buf.write("\t\2/\60\7\n\2\2\60\r\3\2\2\2\61\62\5\n\6\2\62\63\7\6")
+        buf.write("\2\2\638\3\2\2\2\64\65\5\f\7\2\65\66\7\6\2\2\668\3\2\2")
+        buf.write("\2\67\61\3\2\2\2\67\64\3\2\2\28\17\3\2\2\29:\b\t\1\2:")
+        buf.write(">\5\f\7\2;>\5\16\b\2<>\5\n\6\2=9\3\2\2\2=;\3\2\2\2=<\3")
+        buf.write("\2\2\2>F\3\2\2\2?@\f\7\2\2@E\5\20\t\bAB\f\6\2\2BC\7\b")
+        buf.write("\2\2CE\5\20\t\7D?\3\2\2\2DA\3\2\2\2EH\3\2\2\2FD\3\2\2")
+        buf.write("\2FG\3\2\2\2G\21\3\2\2\2HF\3\2\2\2IJ\7\r\2\2JK\5\20\t")
+        buf.write("\2KL\7\r\2\2L\23\3\2\2\2\t\33!+\67=DF")
         return buf.getvalue()
 
 
@@ -44,12 +45,13 @@ class RegexParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'-'", "'['", "']'", "'/'", "'+'", "'*'", 
-                     "'?'", "'|'", "'('", "')'", "'[:digit:]'" ]
+    literalNames = [ "<INVALID>", "'-'", "'+'", "'.'", "'*'", "'?'", "'|'", 
+                     "'('", "')'", "'['", "']'", "'/'" ]
 
-    symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "PLUS", "STAR", "QUESTION_MARK", "OR_OP", 
-                      "GROUP_OP_L", "GROUP_OP_R", "CLASSNAME", "LITERAL" ]
+    symbolicNames = [ "<INVALID>", "<INVALID>", "PLUS", "ANY_CHAR", "STAR", 
+                      "QUESTION_MARK", "OR_OP", "GROUP_OP_L", "GROUP_OP_R", 
+                      "BRACKET_L", "BRACKET_R", "SLASH", "CLASSNAME", "SPECIAL_CHAR", 
+                      "LITERAL" ]
 
     RULE_class_name = 0
     RULE_character_class = 1
@@ -67,17 +69,19 @@ class RegexParser ( Parser ):
 
     EOF = Token.EOF
     T__0=1
-    T__1=2
-    T__2=3
-    T__3=4
-    PLUS=5
-    STAR=6
-    QUESTION_MARK=7
-    OR_OP=8
-    GROUP_OP_L=9
-    GROUP_OP_R=10
-    CLASSNAME=11
-    LITERAL=12
+    PLUS=2
+    ANY_CHAR=3
+    STAR=4
+    QUESTION_MARK=5
+    OR_OP=6
+    GROUP_OP_L=7
+    GROUP_OP_R=8
+    BRACKET_L=9
+    BRACKET_R=10
+    SLASH=11
+    CLASSNAME=12
+    SPECIAL_CHAR=13
+    LITERAL=14
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -214,7 +218,7 @@ class RegexParser ( Parser ):
                 self.state = 28
                 self.character_class_list()
                 pass
-            elif token in [RegexParser.T__2]:
+            elif token in [RegexParser.BRACKET_R]:
                 self.enterOuterAlt(localctx, 2)
 
                 pass
@@ -252,11 +256,11 @@ class RegexParser ( Parser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 33
-            self.match(RegexParser.T__1)
+            self.match(RegexParser.BRACKET_L)
             self.state = 34
             self.character_class_list()
             self.state = 35
-            self.match(RegexParser.T__2)
+            self.match(RegexParser.BRACKET_R)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -278,6 +282,12 @@ class RegexParser ( Parser ):
         def LITERAL(self):
             return self.getToken(RegexParser.LITERAL, 0)
 
+        def ANY_CHAR(self):
+            return self.getToken(RegexParser.ANY_CHAR, 0)
+
+        def SPECIAL_CHAR(self):
+            return self.getToken(RegexParser.SPECIAL_CHAR, 0)
+
         def getRuleIndex(self):
             return RegexParser.RULE_literal_expression
 
@@ -289,10 +299,10 @@ class RegexParser ( Parser ):
         localctx = RegexParser.Literal_expressionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 8, self.RULE_literal_expression)
         try:
-            self.state = 39
+            self.state = 41
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [RegexParser.T__1]:
+            if token in [RegexParser.BRACKET_L]:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 37
                 self.bracket_expression()
@@ -301,6 +311,16 @@ class RegexParser ( Parser ):
                 self.enterOuterAlt(localctx, 2)
                 self.state = 38
                 self.match(RegexParser.LITERAL)
+                pass
+            elif token in [RegexParser.ANY_CHAR]:
+                self.enterOuterAlt(localctx, 3)
+                self.state = 39
+                self.match(RegexParser.ANY_CHAR)
+                pass
+            elif token in [RegexParser.SPECIAL_CHAR]:
+                self.enterOuterAlt(localctx, 4)
+                self.state = 40
+                self.match(RegexParser.SPECIAL_CHAR)
                 pass
             else:
                 raise NoViableAltException(self)
@@ -341,11 +361,11 @@ class RegexParser ( Parser ):
         self.enterRule(localctx, 10, self.RULE_group)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 41
-            self.match(RegexParser.GROUP_OP_L)
-            self.state = 42
-            self.expr(0)
             self.state = 43
+            self.match(RegexParser.GROUP_OP_L)
+            self.state = 44
+            self.expr(0)
+            self.state = 45
             self.match(RegexParser.GROUP_OP_R)
         except RecognitionException as re:
             localctx.exception = re
@@ -383,21 +403,21 @@ class RegexParser ( Parser ):
         localctx = RegexParser.StarContext(self, self._ctx, self.state)
         self.enterRule(localctx, 12, self.RULE_star)
         try:
-            self.state = 51
+            self.state = 53
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [RegexParser.T__1, RegexParser.LITERAL]:
+            if token in [RegexParser.ANY_CHAR, RegexParser.BRACKET_L, RegexParser.SPECIAL_CHAR, RegexParser.LITERAL]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 45
+                self.state = 47
                 self.literal_expression()
-                self.state = 46
+                self.state = 48
                 self.match(RegexParser.STAR)
                 pass
             elif token in [RegexParser.GROUP_OP_L]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 48
+                self.state = 50
                 self.group()
-                self.state = 49
+                self.state = 51
                 self.match(RegexParser.STAR)
                 pass
             else:
@@ -453,27 +473,27 @@ class RegexParser ( Parser ):
         self.enterRecursionRule(localctx, 14, self.RULE_expr, _p)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 57
+            self.state = 59
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,4,self._ctx)
             if la_ == 1:
-                self.state = 54
+                self.state = 56
                 self.group()
                 pass
 
             elif la_ == 2:
-                self.state = 55
+                self.state = 57
                 self.star()
                 pass
 
             elif la_ == 3:
-                self.state = 56
+                self.state = 58
                 self.literal_expression()
                 pass
 
 
             self._ctx.stop = self._input.LT(-1)
-            self.state = 66
+            self.state = 68
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,6,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
@@ -481,35 +501,35 @@ class RegexParser ( Parser ):
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    self.state = 64
+                    self.state = 66
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,5,self._ctx)
                     if la_ == 1:
                         localctx = RegexParser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 59
+                        self.state = 61
                         if not self.precpred(self._ctx, 5):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 5)")
-                        self.state = 60
+                        self.state = 62
                         self.expr(6)
                         pass
 
                     elif la_ == 2:
                         localctx = RegexParser.ExprContext(self, _parentctx, _parentState)
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 61
+                        self.state = 63
                         if not self.precpred(self._ctx, 4):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 4)")
-                        self.state = 62
+                        self.state = 64
                         self.match(RegexParser.OR_OP)
-                        self.state = 63
+                        self.state = 65
                         self.expr(5)
                         pass
 
              
-                self.state = 68
+                self.state = 70
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,6,self._ctx)
 
@@ -527,6 +547,12 @@ class RegexParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
+        def SLASH(self, i:int=None):
+            if i is None:
+                return self.getTokens(RegexParser.SLASH)
+            else:
+                return self.getToken(RegexParser.SLASH, i)
+
         def expr(self):
             return self.getTypedRuleContext(RegexParser.ExprContext,0)
 
@@ -543,12 +569,12 @@ class RegexParser ( Parser ):
         self.enterRule(localctx, 16, self.RULE_regex)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 69
-            self.match(RegexParser.T__3)
-            self.state = 70
-            self.expr(0)
             self.state = 71
-            self.match(RegexParser.T__3)
+            self.match(RegexParser.SLASH)
+            self.state = 72
+            self.expr(0)
+            self.state = 73
+            self.match(RegexParser.SLASH)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)

@@ -1,26 +1,43 @@
+from automata.alphabet_iterator import Alphabet
+
+
 def hasPathFromStartRec(nfa, target, current, visited):
 
     visited.append(current)
     if current == target:
         return True
 
-    if not current in nfa.transitions:
+    if current not in nfa.transitions:
         return
 
     for label in nfa.transitions[current]:
         for dest in nfa.transitions[current][label]:
-            if not dest in visited:
+            if dest not in visited:
                 if hasPathFromStartRec(nfa, target, dest, visited):
                     return True
     return False
 
 
-def hasPathFromStart(nfa, state):
+def findPathFromStart(nfa, state):
     if state in nfa.start:
         return True
     for start in nfa.start:
+        word = []
         if hasPathFromStartRec(nfa, state, start, []):
-            return True
+            return str(word.reverse())
+    return False
+
+def generateWordRec(nfa, current, target, visited, word):
+    if current == target:
+        return True
+    visited.append(current)
+    for state in nfa.transitions:
+        for label in nfa.transitions[current]:
+            for dest in nfa.transitions[current][label]:
+                if dest not in visited:
+                    if generateWordRec(nfa, dest, target, visited, word):
+                        word += [label]
+                        return True
     return False
 
 class Automata:
@@ -30,28 +47,29 @@ class Automata:
         self.final = []
         self.transitions = {}
         self.states = []
+        self.alphabet = Alphabet()
 
     it = 0
-    EPSILON = "e"
+    EPSILON = "epsilon"
 
     def addTransition(self, start, end, literal):
-        if not start in self.states :
+        if start not in self.states :
             raise Exception("Cannot create transition, state does not exists : " + str(start))
-        if not end in self.states :
+        if end not in self.states :
             raise Exception("Cannot create transition, state does not exists : " + str(end))
-
-        if not start in self.transitions:
+        self.alphabet.addToAlphabet(literal)
+        if start not in self.transitions:
             self.transitions[start] = {}
-        if not literal in self.transitions[start]:
+        if literal not in self.transitions[start]:
             self.transitions[start][literal] = []
-        if not end in  self.transitions[start][literal]:
+        if end not in self.transitions[start][literal]:
             self.transitions[start][literal].append(end)
         return
 
 
     def addState(self):
         Automata.it += 1
-        name = Automata.it
+        name = str(Automata.it)
         self.states.append(name)
         return name
 
@@ -72,7 +90,7 @@ class Automata:
 
         # Remove unreachable states
         for state in self.states:
-            if not hasPathFromStart(self, state):
+            if not findPathFromStart(self, state):
                 to_remove.add(state)
 
         for state in to_remove:
@@ -93,10 +111,12 @@ class Automata:
                 for final in src.transitions[start][literal]:
                     self.addTransition(start, final, literal)
 
+    def hasFinalState(self) -> bool:
+        return len(self.final) > 0
+
     def toDot(self):
-        graph = {}
-        graph["transitions"] = ""
-        graph["states"] = ""
+        graph = {"transitions": "",
+                 "states": ""}
         for state in self.states:
             if state in self.start and state in self.final:
                 graph["states"] += "\t" + str(state) + ' [label= "' + str(state) + '", color=purple] ' + ';\n'
@@ -108,7 +128,6 @@ class Automata:
                 graph["states"] += "\t" + str(state) + ' [label= "' + str(state) + '"] ' + ';\n'
 
         transitions = {}
-
 
         for state in self.transitions.keys():
             transitions[state] = {}
@@ -122,20 +141,34 @@ class Automata:
             for dest in transitions[state]:
                 s = ""
                 i = 0
-                if len(transitions[state][dest]) > 4:
-                    s = "..."
-                else:
-                    for label in transitions[state][dest]:
-                        if isinstance(label, str):
-                            s += label
-                        else:
-                          s += chr(label) + " "
-                        i+=1
-                        if i > 5:
-                            s += "..."
-                            break
+
+                for label in transitions[state][dest]:
+                    s += str(label) + " "
+                    i+=1
+                    if i >= 5:
+                        s += "... [" + str(len(transitions[state][dest])) + ']'
+                        break
 
                 graph["transitions"] += "\t" + str(state) + " -> " + str(dest) + "[label=\"" + ascii(s) + "\"]" ";\n"
 
         return "digraph G { \n"  + graph["states"] + graph["transitions"] + "\n}"
 
+    def printPDF(self, name):
+        import os
+        file = open(os.path.join("output", name + ".dot"), "w")
+        file.write(self.toDot())
+        file.close()
+        from subprocess import call
+        call(["dot", "-Tpdf", os.path.join("output", name +".dot"), '-o', os.path.join("output", name + ".pdf")])
+        os.remove(os.path.join("output", name + ".dot"))
+
+
+    def generateWord(self):
+        if len(self.start) == 0:
+            raise Exception("no start state")
+        if len(self.final) == 0:
+            raise Exception("no start state")
+        word = []
+        generateWordRec(self, self.start[0], self.final[0], [], word)
+        word.reverse()
+        return ''.join(word)
