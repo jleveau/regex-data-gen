@@ -6,6 +6,6 @@ from dataGenerator.generator import DataGenerator
 if __name__ == "__main__":
 
     generator = DataGenerator()
-    generator.addConstraint(RegexConstraint("/ac/"))
+    generator.addConstraint(RegexConstraint("/(a)*cb/"))
     generator.addConstraint(LengthConstraint(6))
     print(generator.generate())

@@ -6,15 +6,14 @@ def buildAutomata(constraints) -> DFA:
     if len(constraints) == 0:
         return None
     automata = constraints[0].buildAutomata()
-    automata.printPDF("0")
-
     if len(constraints) == 1:
         return automata
     for i in range(1, len(constraints)):
         automata2 = constraints[i].buildAutomata()
-        automata2.printPDF(str(i))
 
         automata = automata.intersection(automata2)
+        automata = automata.minimize()
+    automata = automata.minimize()
     return automata
 
 
@@ -28,7 +27,7 @@ class DataGenerator:
 
     def generate(self) -> str:
         automata = buildAutomata(self.constraints)
-        automata.printPDF("reg")
+        automata.printPDF("min")
         if not automata.hasFinalState():
             print("cannot match all constraints")
             return ""

@@ -1,46 +1,54 @@
 from automata.automata import Automata
 
-def updateEquivalenceClasses(dfa: 'DFA', state, new_equiv_classes, equiv_classes):
-    class_found = False
-    old_class = None
-    for i in range(len(equiv_classes)):
-        if state in equiv_classes[i]:
-            old_class = i
-    for i in range(len(equiv_classes)):
-        if len(equiv_classes[i]) == 1 and equiv_classes[i][0] == state:
-            new_equiv_classes.append([state])
-            class_found = True
-            break
-        isInClass = True
+def build_new_classes(dfa, equivClass):
 
-        state2 = equiv_classes[i][0]
-        if state == state2:
+    new_classes = [[equivClass[0]]]
+    for state1 in equivClass:
+        if state1 == equivClass[0]:
             continue
 
-        for label in dfa.transitions[state]:
-            for dest in dfa.transitions[state][label]:
-                dest_class = None
-                for i in range(len(equiv_classes)):
-                    if dest in equiv_classes[i]:
-                        dest_class = i
-                if dest_class == old_class:
-                    isInClass = False
+        must_create = True
+        for new_class in new_classes:
+            state2 = new_class[0]
+            if state1 == state2:
+                continue
+            same_class = True
+            for label in dfa.alphabet.letters:
+                if dfa.transitions[state1][label][0] != dfa.transitions[state2][label][0]:
+                    same_class = False
                     break
-
-            if not isInClass:
+            if same_class:
+                new_class.append(state1)
+                must_create = False
                 break
-        if isInClass:
-            if i >= len(new_equiv_classes):
-                new_equiv_classes.append([state])
-            else :
-                new_equiv_classes[i].append(state)
-            class_found = True
-            break
 
-    if not class_found:
-        new_equiv_classes.append([state])
+        if must_create:
+            new_classes.append([state1])
+    return new_classes
+
+
+def updateEquivalenceClasses(dfa: 'DFA', equiv_classes):
+    new_equiv_classes = []
+    for equiv_class in equiv_classes:
+        new_equiv_classes += build_new_classes(dfa, equiv_class)
 
     return new_equiv_classes
+
+def getEquivClassForState(state, classes):
+    for equiv_class in classes:
+        if state in equiv_class:
+            return equiv_class
+
+def classChanged(dfa: 'DFA', classes1, classes2):
+    for state in dfa.states:
+        equiv_class1 = getEquivClassForState(state, classes1)
+        equiv_class2 = getEquivClassForState(state, classes2)
+        classes1_set = set(equiv_class1)
+        classes2_set = set(equiv_class2)
+        if classes1_set != classes2_set:
+            return True
+    return False
+
 
 
 
@@ -127,24 +135,29 @@ class DFA(Automata):
     def intersection(self, dfa):
         neg_dfa1 = self.negation()
         neg_dfa2 = dfa.negation()
-        print(neg_dfa1.alphabet.letters.difference(neg_dfa2.alphabet.letters))
-        union = neg_dfa1.union(neg_dfa2)
-        inter = union.negation()
-        return inter.minimize()
 
+
+        union = neg_dfa1.union(neg_dfa2)
+
+        inter = union.negation()
+
+        min = inter.minimize()
+        return min
 
     def minimize(self):
-        equiv_classes = [[], []]
-        equiv_classes[0] = list(set(self.states) - set(self.final))
-        equiv_classes[1] = self.final.copy()
+        equiv_classes = [
+            list(set(self.states) - set(self.final)),
+            self.final.copy()]
+        has_change = True
+        while has_change:
+            has_change = False
+            classes = equiv_classes.copy()
+            new_equiv_classes = updateEquivalenceClasses(self, equiv_classes)
 
-        while True:
-            new_equiv_classes = []
-            for state in self.states:
-                new_equiv_classes = updateEquivalenceClasses(self, state, new_equiv_classes, equiv_classes)
-            if len(equiv_classes) == len(new_equiv_classes):
-                break
+            if classChanged(self, classes, new_equiv_classes):
+                has_change = True
             equiv_classes = new_equiv_classes
+
         return createFromEquivClasses(self, equiv_classes)
 
 

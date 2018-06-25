@@ -2,31 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14f374c9-e21f-488f-8ef5-26b6e866953e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/dataGenerator/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataGenerator/contraints/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataGenerator/contraints/contraint.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataGenerator/contraints/lengthConstraint.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataGenerator/contraints/regexContraint.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataGenerator/generator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_with_constraints.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/automata/DFA.py" beforeDir="false" afterPath="$PROJECT_DIR$/automata/DFA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/automata/NFA.py" beforeDir="false" afterPath="$PROJECT_DIR$/automata/NFA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/automata/alphabet_iterator.py" beforeDir="false" afterPath="$PROJECT_DIR$/automata/alphabet_iterator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/automata/automata.py" beforeDir="false" afterPath="$PROJECT_DIR$/automata/automata.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dfa.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dfa.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dfa_inter.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dfa_inter.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/Regex.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/gen/Regex.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/RegexLexer.py" beforeDir="false" afterPath="$PROJECT_DIR$/gen/RegexLexer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/RegexLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/gen/RegexLexer.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/RegexParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/gen/RegexParser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/RegexVisitor.py" beforeDir="false" afterPath="$PROJECT_DIR$/gen/RegexVisitor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nodes/literal.py" beforeDir="false" afterPath="$PROJECT_DIR$/nodes/literal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/regex_parser/Regex.g4" beforeDir="false" afterPath="$PROJECT_DIR$/regex_parser/Regex.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thompson/thompson.py" beforeDir="false" afterPath="$PROJECT_DIR$/thompson/thompson.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataGenerator/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataGenerator/generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_with_constraints.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_with_constraints.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/0.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/output/0.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/output/1.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/inter.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/output/inter.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/reg.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/union.pdf" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,18 +21,19 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/generateData$Unnamed.coverage" NAME="constraint Coverage Results" MODIFIED="1529424574976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/generateData$Unnamed.coverage" NAME="constraint Coverage Results" MODIFIED="1529424612366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/regex_data_gen$parser.coverage" NAME="parser Coverage Results" MODIFIED="1528878722020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/regex_data_gen$main.coverage" NAME="main Coverage Results" MODIFIED="1529337701261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/generateData$main.coverage" NAME="main Coverage Results" MODIFIED="1529410293737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/generateData$constraint.coverage" NAME="constraint Coverage Results" MODIFIED="1529942520576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="135">
+              <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -56,13 +41,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main_with_constraints.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main_with_constraints.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main_with_constraints.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+              <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
               <folding>
                 <element signature="e#0#70#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NFA.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/automata/NFA.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="86" column="44" lean-forward="true" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,8 +68,8 @@
       <file leaf-file-name="generator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataGenerator/generator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="255">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -80,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DFA.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DFA.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/automata/DFA.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="129" column="51" selection-start-line="129" selection-start-column="51" selection-end-line="129" selection-end-column="51" />
+            <state relative-caret-position="345">
+              <caret line="71" column="53" lean-forward="true" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -92,7 +89,7 @@
       <file leaf-file-name="automata.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/automata/automata.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
+            <state relative-caret-position="-830">
               <caret line="59" selection-start-line="59" selection-end-line="59" />
             </state>
           </provider>
@@ -101,18 +98,13 @@
       <file leaf-file-name="RegexVisitor.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gen/RegexVisitor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="55" column="28" lean-forward="true" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
+            <state relative-caret-position="735">
+              <caret line="55" column="28" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
               <folding>
                 <element signature="e#100#120#0" expanded="true" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegexLexer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gen/RegexLexer.py">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="alphabet_iterator.py" pinned="false" current-in-tab="false">
@@ -139,7 +131,7 @@
       <file leaf-file-name="regexContraint.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataGenerator/contraints/regexContraint.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="210">
               <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
@@ -224,12 +216,12 @@
         <option value="$PROJECT_DIR$/regex_parser/Regex.g4" />
         <option value="$PROJECT_DIR$/nodes/literal.py" />
         <option value="$PROJECT_DIR$/automata/automata.py" />
-        <option value="$PROJECT_DIR$/dataGenerator/generator.py" />
         <option value="$PROJECT_DIR$/gen/RegexVisitor.py" />
         <option value="$PROJECT_DIR$/dataGenerator/contraints/lengthConstraint.py" />
-        <option value="$PROJECT_DIR$/main_with_constraints.py" />
         <option value="$PROJECT_DIR$/automata/alphabet_iterator.py" />
         <option value="$PROJECT_DIR$/automata/DFA.py" />
+        <option value="$PROJECT_DIR$/dataGenerator/generator.py" />
+        <option value="$PROJECT_DIR$/main_with_constraints.py" />
       </list>
     </option>
   </component>
@@ -243,9 +235,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="640" />
-    <option name="y" value="88" />
-    <option name="width" value="1273" />
+    <option name="x" value="2729" />
+    <option name="y" value="76" />
+    <option name="width" value="1263" />
     <option name="height" value="968" />
   </component>
   <component name="ProjectView">
@@ -253,6 +245,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -268,24 +261,12 @@
             <path>
               <item name="generateData" type="b2602c69:ProjectViewProjectNode" />
               <item name="generateData" type="462c0819:PsiDirectoryNode" />
-              <item name="dataGenerator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="generateData" type="b2602c69:ProjectViewProjectNode" />
-              <item name="generateData" type="462c0819:PsiDirectoryNode" />
-              <item name="dataGenerator" type="462c0819:PsiDirectoryNode" />
-              <item name="contraints" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="generateData" type="b2602c69:ProjectViewProjectNode" />
-              <item name="generateData" type="462c0819:PsiDirectoryNode" />
               <item name="output" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -413,7 +394,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="1920" y="-2" width="1920" height="1082" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -422,24 +403,24 @@
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.329718" />
       <window_info anchor="bottom" id="Python Console" order="15" sideWeight="0.4986577" weight="0.3286334" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.48422801" visible="true" weight="0.318872" />
-      <window_info anchor="bottom" id="Terminal" order="14" sideWeight="0.31654677" weight="0.36008677" />
-      <window_info content_ui="combo" id="Project" order="0" side_tool="true" visible="true" weight="0.15827338" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.48422801" visible="true" weight="0.3182297" />
+      <window_info anchor="bottom" id="Terminal" order="14" sideWeight="0.31654677" weight="0.34984195" />
+      <window_info content_ui="combo" id="Project" order="0" side_tool="true" visible="true" weight="0.15581644" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="2" sideWeight="0.4986577" weight="0.3286334" />
       <window_info anchor="bottom" id="ANTLR Preview" order="13" sideWeight="0.6550335" weight="0.4002169" />
-      <window_info anchor="right" id="SciView" order="4" />
+      <window_info anchor="right" id="SciView" order="4" weight="0.32977587" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.581627" weight="0.4002169" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.581627" weight="0.39936775" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24966443" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="0" weight="0.329718" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="2" sideWeight="0.4986577" weight="0.3286334" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="0" weight="0.329718" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -457,58 +438,60 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="353" />
+      <option name="time" value="537" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="PythonConfigurationType">
-        <watch expression="state" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>state</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>ctx.getText()</expression-string>
+        <expression-string>dfa.transitions</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>literal</expression-string>
+        <expression-string>dfa.transitions[state2]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.transitions[state][literal]</expression-string>
+        <expression-string>dfa.transitions[state2][label][0]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.transitions[state]</expression-string>
+        <expression-string>dfa.transitions[state1][label][0]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.transitions[literal]</expression-string>
+        <expression-string>dfa.transitions[state1][label]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.transitions</expression-string>
+        <expression-string>dfa.transitions[state1]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.transitions[state]['0']</expression-string>
+        <expression-string>dfa</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.transitions[state][0]</expression-string>
+        <expression-string>equiv_classes_dict[dfa.transitions[state2][label][0]]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.transition[state]</expression-string>
+        <expression-string>equiv_classes_dict[dfa.transitions[state][label][0]]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -519,9 +502,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -644,26 +624,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dfa.dot">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dfa_inter.dot">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/dfa0.dot">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/dfa_inter.dot">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dfa.dot" />
+    <entry file="file://$PROJECT_DIR$/dfa_inter.dot" />
+    <entry file="file://$PROJECT_DIR$/output/dfa0.dot" />
+    <entry file="file://$PROJECT_DIR$/output/dfa_inter.dot" />
     <entry file="file://$PROJECT_DIR$/../untitled/venv/lib/python3.6/site-packages/antlr4/Parser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -678,19 +642,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/automata/NFA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="86" column="44" lean-forward="true" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -726,9 +677,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -737,47 +685,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gen/RegexVisitor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="55" column="28" lean-forward="true" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
+        <state relative-caret-position="735">
+          <caret line="55" column="28" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
           <folding>
             <element signature="e#100#120#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataGenerator/generator.py">
+    <entry file="file://$PROJECT_DIR$/dataGenerator/contraints/regexContraint.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="210">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
           <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/automata/automata.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_with_constraints.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#70#0" expanded="true" />
+            <element signature="e#0#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -786,6 +707,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/automata/automata.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-830">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
         </state>
       </provider>
     </entry>
@@ -799,20 +727,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataGenerator/contraints/regexContraint.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="135">
+          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
           <folding>
-            <element signature="e#0#57#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/automata/NFA.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="86" column="44" lean-forward="true" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/automata/DFA.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="129" column="51" selection-start-line="129" selection-start-column="51" selection-end-line="129" selection-end-column="51" />
+        <state relative-caret-position="345">
+          <caret line="71" column="53" lean-forward="true" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataGenerator/generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_with_constraints.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#70#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
