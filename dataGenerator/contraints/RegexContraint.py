@@ -1,6 +1,6 @@
 from dataGenerator.contraints.contraint import Constraint
 from regex_parser.regex_parser import Parser
-from thompson.thompson import Thompson
+from thompson.automatonbuilder import AutomatonBuilder
 
 
 class RegexConstraint(Constraint):
@@ -11,6 +11,10 @@ class RegexConstraint(Constraint):
 
     def buildAutomata(self):
         parser = Parser()
-        NFA = Thompson.toNFA(parser.run(self.regex))
+        NFA = AutomatonBuilder.toNFA(parser.run(self.regex))
+
         DFA = NFA.NFAtoDFA()
         return DFA
+
+    def getTitle(self):
+        return "must match regex : " + self.regex

@@ -1,42 +1,38 @@
-import os
+from coverage.annotate import os
 
-from regex_parser.regex_parser import Parser
-from thompson.thompson import *
-import sys
+from dataGenerator.contraints.MaxLength import MaxLength
+from dataGenerator.contraints.MinLength import MinLength
+from dataGenerator.contraints.RegexContraint import RegexConstraint
+from dataGenerator.generator import DataGenerator
+import time
+
+
+def printData(data) -> str:
+    s = ""
+    i = 0
+    for test_data in data:
+        s += "TEST CAST " + str(i) + "\n"
+        s += "CONSTRAINTS \n"
+        s += test_data[0]
+        s += "DATA TEST \n"
+        s += test_data[1]
+        s += '\n\n\n'
+        i += 1
+    return s
 
 if __name__ == "__main__":
-    parser = Parser()
 
-    regex_list = sys.argv
-    regex_list.pop(0)
+    start_time = time.time()
 
-    dfa_list = []
-    i = 0
-    for regex in regex_list:
-        NFA = Thompson.toNFA(parser.run(regex))
-        DFA = NFA.NFAtoDFA()
-        dfa_list.append(DFA)
+    generator = DataGenerator()
+    generator.addConstraint(MinLength(6))
+    generator.addConstraint(MaxLength(30))
+    generator.addConstraint(RegexConstraint("/([[:alpha:]])*/"))
 
-        file = open(os.path.join("output", "dfa" + str(i) + ".dot"), "w")
-        file.write(DFA.toDot())
-        file.close()
-        i += 1
+    data = generator.generate()
+    print("--- %s seconds ---" % (time.time() - start_time))
 
-    dfa_inter = dfa_list[0]
-    for i in range(0, len(dfa_list)):
-        dfa_inter = dfa_inter.intersection(dfa_list[i])
-    file = open(os.path.join("output", "dfa_inter.dot"), "w")
-    file.write(DFA.toDot())
+    file = open(os.path.join("output", "data.txt"), "w")
+    file.write(printData(data))
     file.close()
 
-    from subprocess import call
-    i = 0
-    for dfa in dfa_list:
-        print("i : " + dfa.generateWord())
-        call(["dot", "-Tpdf", os.path.join("output", "dfa" + str(i) + ".dot"), '-o' , os.path.join("output", "dfa" + str(i) + ".pdf")])
-        os.remove( os.path.join("output", "dfa" + str(i) + ".dot"))
-        i += 1
-
-    call(["dot", "-Tpdf", os.path.join("output", "dfa_inter.dot"), '-o' , os.path.join("output", "dfa_inter.pdf")])
-    os.remove(os.path.join("output", "dfa_inter.dot"))
-    print("inter :" + dfa.generateWord())

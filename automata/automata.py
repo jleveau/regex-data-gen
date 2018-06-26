@@ -1,6 +1,3 @@
-from automata.alphabet_iterator import Alphabet
-
-
 def hasPathFromStartRec(nfa, target, current, visited):
 
     visited.append(current)
@@ -42,74 +39,30 @@ def generateWordRec(nfa, current, target, visited, word):
 
 class Automata:
 
-    def __init__(self):
-        self.start = []
-        self.final = []
+    def __init__(self, alphabet):
+        self.start = set()
+        self.final = set()
         self.transitions = {}
-        self.states = []
-        self.alphabet = Alphabet()
+        self.states = set()
+        self.alphabet = alphabet
+        self.empty_transition = {}
 
     it = 0
     EPSILON = "epsilon"
 
-    def addTransition(self, start, end, literal):
-        if start not in self.states :
-            raise Exception("Cannot create transition, state does not exists : " + str(start))
-        if end not in self.states :
-            raise Exception("Cannot create transition, state does not exists : " + str(end))
-        self.alphabet.addToAlphabet(literal)
-        if start not in self.transitions:
-            self.transitions[start] = {}
-        if literal not in self.transitions[start]:
-            self.transitions[start][literal] = []
-        if end not in self.transitions[start][literal]:
-            self.transitions[start][literal].append(end)
-        return
 
+    def addTransition(self, start, end, literal):
+        self.transitions[start][literal].add(end)
 
     def addState(self):
         Automata.it += 1
         name = str(Automata.it)
-        self.states.append(name)
+        self.states.add(name)
+        self.transitions[name] = {}
+        for literal in self.alphabet:
+            self.transitions[name][literal] = set()
         return name
 
-    def removeState(self, state):
-        if not state in self.states:
-            raise Exception("State not in states list")
-        self.states.remove(state)
-        if state in self.transitions:
-            self.transitions.pop(state)
-        for state_src in self.states:
-            if state_src  in self.transitions:
-                for literal in self.transitions[state_src]:
-                    if state in self.transitions[state_src][literal]:
-                        self.transitions[state_src][literal].remove(state)
-
-    def removeUnReachableState(self):
-        to_remove = set()
-
-        # Remove unreachable states
-        for state in self.states:
-            if not findPathFromStart(self, state):
-                to_remove.add(state)
-
-        for state in to_remove:
-            if state in self.start:
-                self.start.remove(state)
-            if state in self.final:
-                self.final.remove(state)
-            self.removeState(state)
-
-    def copyState(self, src: 'Automata'):
-        for state in src.states:
-            if not state in self.states:
-                self.states.append(state)
-
-    def copyTransition(self, src: 'Automata'):
-        for start in src.transitions.keys():
-            for literal in src.transitions[start].keys():
-                for final in src.transitions[start][literal]:
-                    self.addTransition(start, final, literal)
 
     def hasFinalState(self) -> bool:
         return len(self.final) > 0
@@ -153,22 +106,20 @@ class Automata:
 
         return "digraph G { \n"  + graph["states"] + graph["transitions"] + "\n}"
 
-    def printPDF(self, name):
+    def printPDF(self, name, dir):
         import os
-        file = open(os.path.join("output", name + ".dot"), "w")
+        file = open(os.path.join(dir, name + ".dot"), "w")
         file.write(self.toDot())
         file.close()
         from subprocess import call
-        call(["dot", "-Tpdf", os.path.join("output", name +".dot"), '-o', os.path.join("output", name + ".pdf")])
-        os.remove(os.path.join("output", name + ".dot"))
+        call(["dot", "-Tpdf", os.path.join(dir, name +".dot"), '-o', os.path.join(dir, name + ".pdf")])
+        os.remove(os.path.join(dir, name + ".dot"))
 
 
     def generateWord(self):
-        if len(self.start) == 0:
-            raise Exception("no start state")
-        if len(self.final) == 0:
-            raise Exception("no start state")
         word = []
-        generateWordRec(self, self.start[0], self.final[0], [], word)
+        if len(self.final) == 0:
+            return "cannot create word"
+        generateWordRec(self, list(self.start)[0], list(self.final)[0], [], word)
         word.reverse()
         return ''.join(word)

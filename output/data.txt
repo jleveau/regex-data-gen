@@ -1,0 +1,36 @@
+TEST CAST 0
+CONSTRAINTS 
+must have length superior to : 6
+must have length inferior to : 30
+must match regex : /([[:alpha:]])*/
+DATA TEST 
+VVVVVVVVVVVVVVVVVVVVVV
+
+
+TEST CAST 1
+CONSTRAINTS 
+NOT must have length superior to : 6
+must have length inferior to : 30
+must match regex : /([[:alpha:]])*/
+DATA TEST 
+VVVVV
+
+
+TEST CAST 2
+CONSTRAINTS 
+must have length superior to : 6
+NOT must have length inferior to : 30
+must match regex : /([[:alpha:]])*/
+DATA TEST 
+VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+
+
+TEST CAST 3
+CONSTRAINTS 
+must have length superior to : 6
+must have length inferior to : 30
+NOT must match regex : /([[:alpha:]])*/
+DATA TEST 
+ÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕ
+
+

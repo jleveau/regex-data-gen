@@ -1,8 +1,14 @@
 from automata import DFA
-from thompson.thompson import Thompson
+from thompson.automatonbuilder import AutomatonBuilder
 
 
 class Constraint:
 
     def buildAutomata(self) -> DFA:
-        return Thompson.emptyWord()
+        return AutomatonBuilder.emptyWord()
+
+    def getTitle(self) -> str:
+        return "empty constraint"
+
+    def buildInvertAutomata(self) -> DFA:
+        return self.buildAutomata().negation()

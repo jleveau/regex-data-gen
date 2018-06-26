@@ -1,37 +1,29 @@
 from automata.DFA import DFA
+from automata.alphabet_iterator import Alphabet
 from automata.automata import Automata
 
-
-def hasEpsilonPath(nfa, src, dest):
-    return hasEpsilonPathRec(nfa, src, dest, [])
-
-
-def hasEpsilonPathRec(nfa, current, dest, visited):
-    if current in visited:
-        return False
-    visited.append(current)
-    if current == dest:
-        return True
-
-    if current not in nfa.transitions or NFA.EPSILON not in nfa.transitions[current]:
-        return False
-
-    for state in nfa.transitions[current][NFA.EPSILON]:
-        if state not in visited:
-            if hasEpsilonPathRec(nfa, state, dest, visited):
-                return True
-    return False
+def getEpsilonReachable(nfa, start):
+    visited, stack = set(), [start]
+    reachable = set()
+    while stack:
+        current = stack.pop()
+        reachable.add(current)
+        if current not in visited:
+            visited.add(current)
+            next = set()
+            if current in nfa.transitions and NFA.EPSILON in nfa.transitions[current]:
+                next = nfa.transitions[current][NFA.EPSILON]
+            stack.extend(next - visited)
+    return reachable
 
 
 class NFA(Automata):
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, alphabet):
+        super().__init__(alphabet)
 
     def NFAtoDFA(self):
-        dfa = DFA()
-
-        self.start.sort()
+        dfa = DFA(Alphabet())
         src = tuple(self.start)
 
         start = src
@@ -74,57 +66,51 @@ class NFA(Automata):
         for state in powerset:
             for sub_state in state:
                 if sub_state in self.final and state_names[state] not in dfa.final:
-                    dfa.final.append(state_names[state])
+                    dfa.final.add(state_names[state])
                     break
 
         for final_state in self.final:
             for state in powerset:
                 if final_state in state:
-                    dfa.final.append(state_names[state])
+                    dfa.final.add(state_names[state])
 
         for state_name in state_names:
             if len(state_name) == 0:
                 for literal in self.alphabet:
                     dfa.addTransition(state_names[state_name], state_names[state_name], literal)
                 break
-
-        dfa.removeUnReachableState()
-
         return dfa
 
     def removeEpsilon(self) -> 'NFA':
 
-        new_nfa = NFA()
-        new_nfa.copyState(self)
+        new_nfa = NFA(Alphabet())
+
+        equiv_states = {}
+        for state in self.states:
+            equiv_states[state] = new_nfa.addState()
+
+        epsilon_reachable = {}
+        for state_src in self.states:
+            epsilon_reachable[state_src] = getEpsilonReachable(self, state_src)
 
         for start in self.start:
-            if start in self.transitions:
-                for state in self.states:
-                    if hasEpsilonPath(self, start, state):
-                        new_nfa.start.append(state)
+            for state in epsilon_reachable[start]:
+                new_nfa.start.add(equiv_states[state])
 
         for state in self.states:
             for final_state in self.final:
-                if hasEpsilonPath(self, state, final_state):
-                    new_nfa.final.append(state)
+                if final_state in epsilon_reachable[state]:
+                    new_nfa.final.add(equiv_states[state])
 
         for state in self.states:
-            if state in self.transitions :
-                for label in self.transitions[state]:
-                    if label != NFA.EPSILON:
-                        for dest in self.transitions[state][label]:
-                            new_nfa.addTransition(state, dest, label)
+            for label in self.alphabet.letters - {Automata.EPSILON}:
+                for dest in self.transitions[state][label]:
+                    new_nfa.addTransition(equiv_states[state], equiv_states[dest], label)
 
         for state_src in self.states:
-            for state_dest in self.states:
-                if state_dest != state_src \
-                        and hasEpsilonPath(self, state_src, state_dest) \
-                        and state_dest in self.transitions:
-                    for literal in self.transitions[state_dest]:
-                        if literal != NFA.EPSILON:
-                            for epsilon_dest in self.transitions[state_dest][literal]:
-                                new_nfa.addTransition(state_src, epsilon_dest, literal)
-
-        new_nfa.removeUnReachableState()
+            for label in self.alphabet.letters - {Automata.EPSILON}:
+                for dest in self.transitions[state_src][label]:
+                    for reachable in epsilon_reachable[dest]:
+                        new_nfa.addTransition(equiv_states[state_src], equiv_states[reachable], label)
 
         return new_nfa

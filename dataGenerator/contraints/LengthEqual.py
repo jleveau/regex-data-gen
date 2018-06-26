@@ -1,9 +1,9 @@
 from dataGenerator.contraints.contraint import Constraint
 from regex_parser.regex_parser import Parser
-from thompson.thompson import Thompson
+from thompson.automatonbuilder import AutomatonBuilder
 
 
-class LengthConstraint(Constraint):
+class LengthEqual(Constraint):
 
     def __init__(self, length: int):
         super().__init__()
@@ -12,9 +12,9 @@ class LengthConstraint(Constraint):
     def buildAutomata(self):
         regex = ""
         for i in range(self.length):
-            regex += "[a-d]"
+            regex += "."
 
         parser = Parser()
-        NFA = Thompson.toNFA(parser.run('/' + regex + '/'))
+        NFA = AutomatonBuilder.toNFA(parser.run('/' + regex + '/'))
         DFA = NFA.NFAtoDFA()
         return DFA
